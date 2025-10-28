@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BussinessLayerService\BussinessLayerService.csproj" />
+    <ProjectReference Include="..\DataAccessLayerService\DataAccessLayerService.csproj" />
+  </ItemGroup>
+
 </Project>
