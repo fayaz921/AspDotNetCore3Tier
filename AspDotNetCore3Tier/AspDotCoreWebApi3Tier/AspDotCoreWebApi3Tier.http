@@ -1,0 +1,6 @@
+@AspDotCoreWebApi3Tier_HostAddress = http://localhost:5042
+
+GET {{AspDotCoreWebApi3Tier_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
