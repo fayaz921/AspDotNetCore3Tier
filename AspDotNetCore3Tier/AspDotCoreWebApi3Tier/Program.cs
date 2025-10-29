@@ -1,3 +1,7 @@
+using BussinessLayerService.Repositories.Implementation;
+using BussinessLayerService.Repositories.Interface;
+using BussinessLayerService.Services.Implementation;
+using BussinessLayerService.Services.Interface;
 using DataAccessLayerService.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +16,11 @@ builder.Services.AddOpenApi();
 //Add Db
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MyConn")));
 builder.Services.AddSwaggerGen();
+
+//Add Repo
+builder.Services.AddScoped<ITeacherRepo, TeacherRepo>();
+builder.Services.AddScoped<ITeacherService, TeacherService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
