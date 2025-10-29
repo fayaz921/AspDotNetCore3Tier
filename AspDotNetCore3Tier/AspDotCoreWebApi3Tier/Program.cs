@@ -1,3 +1,4 @@
+using BussinessLayerService.AutoMapper;
 using BussinessLayerService.Repositories.Implementation;
 using BussinessLayerService.Repositories.Interface;
 using BussinessLayerService.Services.Implementation;
@@ -20,6 +21,7 @@ builder.Services.AddSwaggerGen();
 //Add Repo
 builder.Services.AddScoped<ITeacherRepo, TeacherRepo>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
+builder.Services.AddAutoMapper(typeof(TeacherMapper));
 
 var app = builder.Build();
 
