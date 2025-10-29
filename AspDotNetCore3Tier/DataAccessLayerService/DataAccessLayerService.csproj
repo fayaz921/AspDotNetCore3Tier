@@ -19,8 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BussinessLayerService\BussinessLayerService.csproj" />
-  </ItemGroup>
-
 </Project>
