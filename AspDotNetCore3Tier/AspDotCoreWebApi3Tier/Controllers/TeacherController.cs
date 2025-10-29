@@ -1,4 +1,5 @@
-﻿using BussinessLayerService.Services.Interface;
+﻿using BussinessLayerService.Dtos;
+using BussinessLayerService.Services.Interface;
 using DataAccessLayerService.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@ namespace AspDotCoreWebApi3Tier.Controllers
         }
         [HttpPost]
         [Route("SaveTeacher")]
-        public async Task<IActionResult> SaveTeacher(Teacher teacher)
+        public async Task<IActionResult> SaveTeacher(AddTeacherDto teacher)
         {
             await teacherService.SaveTeacher(teacher);
             return Ok("Teacher Saved Successfully");
