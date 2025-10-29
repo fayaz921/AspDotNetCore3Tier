@@ -1,4 +1,5 @@
-﻿using DataAccessLayerService.Entities;
+﻿using BussinessLayerService.Dtos;
+using DataAccessLayerService.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace BussinessLayerService.Services.Interface
 {
     public interface ITeacherService
     {
-        Task<string> SaveTeacher(Teacher teacher);
+        Task<string> SaveTeacher(AddTeacherDto teacher);
     }
 }
