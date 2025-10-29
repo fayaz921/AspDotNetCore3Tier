@@ -1,4 +1,6 @@
-﻿using BussinessLayerService.Repositories.Interface;
+﻿using AutoMapper;
+using BussinessLayerService.Dtos;
+using BussinessLayerService.Repositories.Interface;
 using BussinessLayerService.Services.Interface;
 using DataAccessLayerService.Entities;
 using System;
@@ -12,13 +14,16 @@ namespace BussinessLayerService.Services.Implementation
     public class TeacherService : ITeacherService
     {
         private readonly ITeacherRepo teacherRepo;
-        public TeacherService(ITeacherRepo _teacherrepo)
+        private readonly IMapper mapper;
+        public TeacherService(ITeacherRepo _teacherrepo, IMapper _mapper)
         {
             teacherRepo = _teacherrepo;
+            mapper = _mapper;
         }
-        public async Task<string> SaveTeacher(Teacher teacher)
-        {
-             await teacherRepo.SaveTeacher(teacher);
+        public async Task<string> SaveTeacher(AddTeacherDto teacher)
+        { 
+            var teach = mapper.Map<Teacher>(teacher);
+            await teacherRepo.SaveTeacher(teach);
              return "Teacher Saved Successfully";
         }
     }
