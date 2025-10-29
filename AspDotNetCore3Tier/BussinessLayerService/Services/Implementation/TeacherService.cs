@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BussinessLayerService.Services.Implementation
 {
-    internal class TeacherService : ITeacherService
+    public class TeacherService : ITeacherService
     {
         private readonly ITeacherRepo teacherRepo;
         public TeacherService(ITeacherRepo _teacherrepo)
