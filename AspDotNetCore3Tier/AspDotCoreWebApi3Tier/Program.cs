@@ -1,4 +1,5 @@
 using BussinessLayerService.AutoMapper;
+using BussinessLayerService.MiddleWare;
 using BussinessLayerService.Repositories.Implementation;
 using BussinessLayerService.Repositories.Interface;
 using BussinessLayerService.Services.Implementation;
@@ -33,6 +34,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseMiddleware<GlobalExceptionHandlingMiddleWare>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
