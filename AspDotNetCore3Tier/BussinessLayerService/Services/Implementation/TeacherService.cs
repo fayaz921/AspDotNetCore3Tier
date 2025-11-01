@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BussinessLayerService.ApiResponse;
 using BussinessLayerService.Dtos;
 using BussinessLayerService.Repositories.Interface;
 using BussinessLayerService.Services.Interface;
@@ -20,11 +21,11 @@ namespace BussinessLayerService.Services.Implementation
             teacherRepo = _teacherrepo;
             mapper = _mapper;
         }
-        public async Task<string> SaveTeacher(AddTeacherDto teacher)
+        public async Task<ApiResponse<string>> SaveTeacher(AddTeacherDto teacher)
         { 
             var teach = mapper.Map<Teacher>(teacher);
             await teacherRepo.SaveTeacher(teach);
-             return "Teacher Saved Successfully";
+            return ApiResponse<string>.SuccessResponse("Teacher Saved Successfully");
         }
     }
 }
