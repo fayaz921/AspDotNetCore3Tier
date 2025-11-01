@@ -8,6 +8,8 @@ namespace AspDotCoreWebApi3Tier.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public class TeacherController : ControllerBase
     {
         private readonly ITeacherService teacherService;
@@ -17,10 +19,11 @@ namespace AspDotCoreWebApi3Tier.Controllers
         }
         [HttpPost]
         [Route("SaveTeacher")]
-        public async Task<IActionResult> SaveTeacher(AddTeacherDto teacher)
+        public async Task<IActionResult> SaveTeacher([FromBody]AddTeacherDto teacher)
         {
-            await teacherService.SaveTeacher(teacher);
-            return Ok("Teacher Saved Successfully");
+           var response = await teacherService.SaveTeacher(teacher);
+            return response.Data is null ? NotFound(response.Error) : Ok(response.Data);
+            
         }
     }
 }
