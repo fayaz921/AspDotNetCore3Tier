@@ -1,4 +1,5 @@
-﻿using BussinessLayerService.Dtos;
+﻿using BussinessLayerService.ApiResponse;
+using BussinessLayerService.Dtos;
 using DataAccessLayerService.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace BussinessLayerService.Services.Interface
 {
     public interface ITeacherService
     {
-        Task<string> SaveTeacher(AddTeacherDto teacher);
+        Task<ApiResponse<string>> SaveTeacher(AddTeacherDto teacher);
     }
 }
